@@ -1,10 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://c6auuc3bg6op0"]
-
-[sub_resource type="Environment" id="Environment_f7yge"]
+[gd_scene format=3 uid="uid://c6auuc3bg6op0"]
 
 [node name="WorldEnvironment" type="WorldEnvironment"]
-environment = SubResource("Environment_f7yge")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.647761, 0.761844, 0, -0.761844, 0.647761, 0, 1.12415, 0)
-shadow_enabled = true
+transform = Transform3D(0.970029, -0.212435, -0.117963, 0.136793, 0.0761935, 0.987665, -0.200827, -0.9742, 0.10297, -2.57733, 5.68107, -5.48309)
+light_energy = 0.848
+light_indirect_energy = 4.2

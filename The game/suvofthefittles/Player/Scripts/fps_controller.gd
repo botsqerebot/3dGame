@@ -19,10 +19,7 @@ var _rotation_input : float
 var _tilt_input : float
 var _player_rotation : Vector3
 var _camera_rotation : Vector3
-
-#var sprint := Input.is_action_pressed("sprint")
-
-
+ 
 
 func _input(event):
 	if event.is_action_pressed("exit"):

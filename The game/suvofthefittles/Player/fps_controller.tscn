@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://mrrjdnidth7w"]
+[gd_scene load_steps=9 format=3 uid="uid://mrrjdnidth7w"]
 
 [ext_resource type="Script" path="res://Player/Scripts/fps_controller.gd" id="1_84fs0"]
 [ext_resource type="Texture2D" uid="uid://bd2f0gxyg884x" path="res://addons/kenney_prototype_textures/green/texture_01.png" id="1_tuff5"]
+[ext_resource type="Resource" uid="uid://dtmibi6phhh5l" path="res://Inventory/player_inventory.tres" id="2_7yk2p"]
 [ext_resource type="ArrayMesh" uid="uid://jetj575fa7h6" path="res://Player/Mesh/14-girl-obj/girl OBJ.obj" id="3_lxe78"]
+[ext_resource type="PackedScene" uid="uid://cmao84pu7mcvd" path="res://Inventory/inv_ui.tscn" id="5_rpxj5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6vvqn"]
 
@@ -17,6 +19,7 @@ uv1_triplanar = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 script = ExtResource("1_84fs0")
 CAMERA_CONTROLLER = NodePath("CameraController/Camera3D")
+inv = ExtResource("2_7yk2p")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -41,8 +44,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.3501, -15.0307, -14.7304)
 update_mode = 1
 size = Vector3(60, 60, 60)
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.052
-one_shot = true
-
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[node name="Inv_UI" parent="." instance=ExtResource("5_rpxj5")]
+offset_left = 527.0
+offset_top = 249.0
+offset_right = 527.0
+offset_bottom = 249.0

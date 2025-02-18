@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://bl7a21wkgiskp"]
+
+[ext_resource type="Texture2D" uid="uid://cgjle0wqjn0t" path="res://Textures/Inventory/InventorySlotTemp.png" id="1_cvkye"]
+
+[node name="inv_UI_slot" type="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(78, 78)
+anchors_preset = -1
+anchor_right = 0.04
+anchor_bottom = 0.073
+offset_right = 1.2
+offset_bottom = -0.840004
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.13, 0.13)
+texture = ExtResource("1_cvkye")
+centered = false
