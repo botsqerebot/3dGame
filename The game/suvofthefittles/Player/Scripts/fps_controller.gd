@@ -11,6 +11,8 @@ extends CharacterBody3D
 
 @export var Stamina = 10.0
 
+@export var inv: Inventory
+
 var _mouse_input : bool = false
 var _mouse_rotation : Vector3
 var _rotation_input : float
