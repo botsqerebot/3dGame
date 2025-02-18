@@ -1,0 +1,79 @@
+[gd_scene load_steps=14 format=3 uid="uid://bhjhwpvw38x4k"]
+
+[ext_resource type="Texture2D" uid="uid://cnv0pufommu8t" path="res://addons/kenney_prototype_textures/dark/texture_06.png" id="1_fiwqe"]
+[ext_resource type="PackedScene" uid="uid://mrrjdnidth7w" path="res://Player/fps_controller.tscn" id="2_u0oun"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u71mh"]
+albedo_texture = ExtResource("1_fiwqe")
+uv1_scale = Vector3(7, 7, 7)
+uv1_triplanar = true
+texture_filter = 0
+grow_amount = 3.775
+
+[sub_resource type="BoxMesh" id="BoxMesh_d3oxw"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8fbc7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uyxt3"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_x5rru"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qkc6f"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_d1kg4"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_h5rgh"]
+data = PackedVector3Array(0, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0, 0.5, 0.5, 0, 0.5, -0.5, 0.5, -0.5, 0.5, 0, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0, 0.5, -0.5, 0, 0.5, 0.5, -0.5, -0.5, -0.5, 0, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0ekoe"]
+
+[sub_resource type="Sky" id="Sky_wa66c"]
+sky_material = SubResource("ProceduralSkyMaterial_0ekoe")
+
+[sub_resource type="Environment" id="Environment_g6pe3"]
+background_mode = 2
+sky = SubResource("Sky_wa66c")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(30.2129, 0, 0, 0, 1, 0, 0, 0, 16.4216, 0.00229931, -0.00485563, 0.00123191)
+material_override = SubResource("StandardMaterial3D_u71mh")
+mesh = SubResource("BoxMesh_d3oxw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
+physics_material_override = SubResource("PhysicsMaterial_8fbc7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
+transform = Transform3D(0.999991, 0, 0, 0, 0.999994, 0, 0, 0, 0.999999, 0, 0, 0)
+shape = SubResource("BoxShape3D_uyxt3")
+
+[node name="Box" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.99, 0)
+mesh = SubResource("BoxMesh_x5rru")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Box"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Box/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00200683, -0.00360584, 0.00207782)
+shape = SubResource("BoxShape3D_qkc6f")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(3.83045, 0, 0, 0, 1.00126, 0, 0, 0, 1.00126, -4.99459, 0.996205, 0)
+mesh = SubResource("PrismMesh_d1kg4")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_h5rgh")
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("2_u0oun")]
+transform = Transform3D(0.145185, 0, 0.989404, 0, 1, 0, -0.989404, 0, 0.145185, -1.77375, 1.52787, -0.00162888)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_g6pe3")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 0.0143636, 1.57092, 0, -0.636439, 0.0143636, 0, 12.31, 0.19121)

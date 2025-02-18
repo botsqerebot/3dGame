@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://mrrjdnidth7w"]
+
+[ext_resource type="Script" path="res://Player/Scripts/fps_controller.gd" id="1_84fs0"]
+[ext_resource type="Texture2D" uid="uid://bd2f0gxyg884x" path="res://addons/kenney_prototype_textures/green/texture_01.png" id="1_tuff5"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6vvqn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n67j2"]
+albedo_texture = ExtResource("1_tuff5")
+uv1_scale = Vector3(1.02, 1.02, 1.02)
+uv1_triplanar = true
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_rk6wt"]
+
+[node name="CharacterBody3D" type="CharacterBody3D" node_paths=PackedStringArray("CAMERA_CONTROLLER")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+script = ExtResource("1_84fs0")
+CAMERA_CONTROLLER = NodePath("CameraController/Camera3D")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_6vvqn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+material_override = SubResource("StandardMaterial3D_n67j2")
+mesh = SubResource("CapsuleMesh_rk6wt")
+
+[node name="CameraController" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.635301, 0)
+metadata/_edit_group_ = true
+
+[node name="Camera3D" type="Camera3D" parent="CameraController"]
+
+[node name="ReflectionProbe" type="ReflectionProbe" parent="CameraController/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.3501, -15.0307, -14.7304)
+update_mode = 1
+size = Vector3(60, 60, 60)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.052
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
