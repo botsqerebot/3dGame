@@ -10,4 +10,5 @@ sky_material = SubResource("PhysicalSkyMaterial_g7cb1")
 background_mode = 2
 sky = SubResource("Sky_ik785")
 volumetric_fog_enabled = true
-volumetric_fog_albedo = Color(0.936168, 0.150406, 0, 1)
+volumetric_fog_density = 0.1524
+volumetric_fog_length = 44.02

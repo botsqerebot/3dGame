@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://blinhow3tue3q"]
+
+[ext_resource type="Script" path="res://rigid_body_3d.gd" id="1_rofnw"]
+[ext_resource type="Resource" uid="uid://cjpteawhvvrck" path="res://Inventory/Itemsd/stone.tres" id="2_mbf8x"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_icrmj"]
+bounce = 1.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ipcgk"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_awnn5"]
+radius = 0.636655
+
+[sub_resource type="SphereMesh" id="SphereMesh_kenaa"]
+
+[node name="RigidBody3D" type="RigidBody3D"]
+mass = 0.001
+physics_material_override = SubResource("PhysicsMaterial_icrmj")
+script = ExtResource("1_rofnw")
+item = ExtResource("2_mbf8x")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_ipcgk")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, 0, 0, 0)
+shape = SubResource("SphereShape3D_awnn5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_kenaa")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

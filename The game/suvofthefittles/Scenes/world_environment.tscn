@@ -1,6 +1,9 @@
-[gd_scene format=3 uid="uid://c6auuc3bg6op0"]
+[gd_scene load_steps=2 format=3 uid="uid://c6auuc3bg6op0"]
+
+[ext_resource type="Environment" uid="uid://cn71hn0tmb6wt" path="res://Scenes/world_environment.tres" id="1_1h5jx"]
 
 [node name="WorldEnvironment" type="WorldEnvironment"]
+environment = ExtResource("1_1h5jx")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.970029, -0.212435, -0.117963, 0.136793, 0.0761935, 0.987665, -0.200827, -0.9742, 0.10297, -2.57733, 5.68107, -5.48309)

@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://ed71tr8ddb0l"]
+
+[ext_resource type="Script" path="res://rigid_body_3d.gd" id="1_mshid"]
+[ext_resource type="Resource" uid="uid://b402brwlp32jm" path="res://Inventory/Itemsd/Tree.tres" id="2_vdea7"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_7wxtv"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ve5hw"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_f65rc"]
+radius = 1.24293
+
+[node name="RigidBody3D" type="RigidBody3D"]
+script = ExtResource("1_mshid")
+item = ExtResource("2_vdea7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+layers = 2049
+mesh = SubResource("CapsuleMesh_7wxtv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_ve5hw")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_f65rc")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

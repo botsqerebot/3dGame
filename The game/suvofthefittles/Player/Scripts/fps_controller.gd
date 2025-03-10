@@ -19,6 +19,9 @@ var _rotation_input : float
 var _tilt_input : float
 var _player_rotation : Vector3
 var _camera_rotation : Vector3
+
+func player():
+	pass
  
 
 func _input(event):
@@ -56,8 +59,8 @@ func _update_camera(delta):
 		#$Timer.start()
 		#
 
-func _ready():
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+#func _ready():
+	#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -92,3 +95,7 @@ func _physics_process(delta: float) -> void:
 func _on_timer_timeout() -> void:
 		Stamina -= 1
 		print(Stamina)
+
+
+func collect(item):
+	inv.insert(item)

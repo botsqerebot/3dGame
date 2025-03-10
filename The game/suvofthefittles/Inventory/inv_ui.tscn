@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bl7a21wkgiskp" path="res://Inventory/inv_ui_slot.tscn" id="3_4bvej"]
 
 [node name="Inv_UI" type="Control"]
+custom_minimum_size = Vector2(864, 486)
 layout_mode = 3
 anchor_right = 0.45
 anchor_bottom = 0.45
@@ -12,7 +13,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_tqk7m")
 metadata/_edit_use_anchors_ = true
-metadata/_edit_group_ = true
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 1
@@ -23,44 +23,67 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_jkhh1")
 
-[node name="GridContainer" type="GridContainer" parent="NinePatchRect"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Pocket" type="GridContainer" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 336.0
+offset_top = 189.0
+offset_right = -40.0
+offset_bottom = -137.0
+grow_horizontal = 2
+grow_vertical = 2
 columns = 6
 
-[node name="inv_UI_slot" parent="NinePatchRect/GridContainer" instance=ExtResource("3_4bvej")]
+[node name="inv_UI_slot" parent="NinePatchRect/Pocket" instance=ExtResource("3_4bvej")]
 layout_mode = 2
 
-[node name="inv_UI_slot2" parent="NinePatchRect/GridContainer" instance=ExtResource("3_4bvej")]
+[node name="inv_UI_slot2" parent="NinePatchRect/Pocket" instance=ExtResource("3_4bvej")]
 layout_mode = 2
 
-[node name="inv_UI_slot3" parent="NinePatchRect/GridContainer" instance=ExtResource("3_4bvej")]
+[node name="inv_UI_slot3" parent="NinePatchRect/Pocket" instance=ExtResource("3_4bvej")]
 layout_mode = 2
 
-[node name="inv_UI_slot4" parent="NinePatchRect/GridContainer" instance=ExtResource("3_4bvej")]
+[node name="inv_UI_slot4" parent="NinePatchRect/Pocket" instance=ExtResource("3_4bvej")]
 layout_mode = 2
 
-[node name="inv_UI_slot5" parent="NinePatchRect/GridContainer" instance=ExtResource("3_4bvej")]
+[node name="inv_UI_slot5" parent="NinePatchRect/Pocket" instance=ExtResource("3_4bvej")]
 layout_mode = 2
 
-[node name="inv_UI_slot6" parent="NinePatchRect/GridContainer" instance=ExtResource("3_4bvej")]
+[node name="inv_UI_slot6" parent="NinePatchRect/Pocket" instance=ExtResource("3_4bvej")]
 layout_mode = 2
 
-[node name="inv_UI_slot7" parent="NinePatchRect/GridContainer" instance=ExtResource("3_4bvej")]
+[node name="inv_UI_slot7" parent="NinePatchRect/Pocket" instance=ExtResource("3_4bvej")]
 layout_mode = 2
 
-[node name="inv_UI_slot8" parent="NinePatchRect/GridContainer" instance=ExtResource("3_4bvej")]
+[node name="inv_UI_slot8" parent="NinePatchRect/Pocket" instance=ExtResource("3_4bvej")]
 layout_mode = 2
 
-[node name="inv_UI_slot9" parent="NinePatchRect/GridContainer" instance=ExtResource("3_4bvej")]
+[node name="inv_UI_slot9" parent="NinePatchRect/Pocket" instance=ExtResource("3_4bvej")]
 layout_mode = 2
 
-[node name="inv_UI_slot10" parent="NinePatchRect/GridContainer" instance=ExtResource("3_4bvej")]
+[node name="inv_UI_slot10" parent="NinePatchRect/Pocket" instance=ExtResource("3_4bvej")]
 layout_mode = 2
 
-[node name="inv_UI_slot11" parent="NinePatchRect/GridContainer" instance=ExtResource("3_4bvej")]
+[node name="inv_UI_slot11" parent="NinePatchRect/Pocket" instance=ExtResource("3_4bvej")]
 layout_mode = 2
 
-[node name="inv_UI_slot12" parent="NinePatchRect/GridContainer" instance=ExtResource("3_4bvej")]
+[node name="inv_UI_slot12" parent="NinePatchRect/Pocket" instance=ExtResource("3_4bvej")]
+layout_mode = 2
+
+[node name="Armor" type="GridContainer" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 114.0
+offset_right = 133.0
+offset_bottom = 356.0
+
+[node name="inv_UI_slot" parent="NinePatchRect/Armor" instance=ExtResource("3_4bvej")]
+layout_mode = 2
+
+[node name="inv_UI_slot2" parent="NinePatchRect/Armor" instance=ExtResource("3_4bvej")]
+layout_mode = 2
+
+[node name="inv_UI_slot3" parent="NinePatchRect/Armor" instance=ExtResource("3_4bvej")]
 layout_mode = 2
