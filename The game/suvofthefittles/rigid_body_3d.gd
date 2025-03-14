@@ -12,6 +12,7 @@ func _process(_delta: float) -> void:
 	if max_pickups == 0:
 		$".".queue_free()
 	if player_in_area:
+		#print("entered")
 		if Input.is_action_just_pressed("e") and max_pickups > 0:
 			print("picked up item")
 			player.collect(item)
@@ -22,7 +23,6 @@ func _process(_delta: float) -> void:
 			$Area3D/CollisionShape3D.scale *= 1.2
 
 func _on_area_3d_body_entered(body) -> void:
-	print("entered")
 	if body.has_method("player"):
 		player_in_area = true
 		player = body
