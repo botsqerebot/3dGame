@@ -1,7 +1,7 @@
 extends Panel
 
 @onready var item_visual: Sprite2D = $CenterContainer/Panel/item_display
-@onready var slots: Sprite2D = $CenterContainer/Panel/item_display
+@onready var slots = $CenterContainer/Panel/item_display
 @onready var amount_text: Label = $CenterContainer/Panel/Label
 
 func _ready() -> void:
@@ -21,7 +21,7 @@ func update(slot: InvSlot):
 
 func _get_drag_data(at_position):
 	var dragSlotNode = get_slot_node_at_position(at_position)
-	print("drag start")
+	print("drag start", dragSlotNode)
 	if dragSlotNode.texture == null: return
 	print("has texture")
 	var dragPreviewNode = dragSlotNode.duplicate()
